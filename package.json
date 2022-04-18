@@ -1,0 +1,38 @@
+{
+    "name": "sqsconsumer-toredisearch-js",
+    "version": "0.0.1",
+    "description": "LaFleet - SQS Consumer writing to Redisearch in JavaScript",
+    "homepage": "https://github.com/Ducharme/sqsconsumer-toredisearch-js",
+    "keywords": [ "aws", "iot", "lafleet" ],
+    "author": "Claude Ducharme",
+    "license": "MIT",
+    "main": "./dist/main.js",
+    "types": "./dist/main.d.ts",
+    "scripts": {
+        "tsc": "tsc -p ./tsconfig.json",
+        "prepare": "npm run tsc",
+        "build": "tsc",
+        "start": "node dist/main.js",
+        "start:envvars": "sh start-with-envvars.sh .env.production",
+        "start:docker:envvars": "sh start-docker-envvars.sh .env.production"
+    },
+    "dependencies": {
+        "redis": "^3.1.2",
+        "@aws-sdk/client-sqs": "^3.31.0",
+        "h3-js": "^3.7.2"
+    },
+    "devDependencies": {
+        "typescript": "^4.4.3",
+        "@types/node": "^14.14.31",
+        "@typescript-eslint/types": "4.31.0"
+    },
+    "eslintConfig": {
+        "parser": "@typescript-eslint/parser",
+        "plugins": [
+            "@typescript-eslint"
+        ],
+        "extends": [
+            "plugin:@typescript-eslint/recommended"
+        ]
+    }
+}
